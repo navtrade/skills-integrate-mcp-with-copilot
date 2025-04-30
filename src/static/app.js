@@ -42,10 +42,17 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+          <button class="register-btn" data-activity="${name}">Register Student</button>
           <div class="participants-container">
             ${participantsHTML}
           </div>
         `;
+
+        // Add event listener to the register button
+        activityCard.querySelector(".register-btn").addEventListener("click", () => {
+          document.getElementById("signup-container").classList.remove("hidden");
+          document.getElementById("activity").value = name;
+        });
 
         activitiesList.appendChild(activityCard);
 
